@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<h1 >Hey {{ user }}, Write something</h1>
+
+
+<form method="POST">
+
+    {% csrf_token %}    
+
+    {{ form }}
+
+    <input type="submit" value="Save"  style="margin-block:50px;">
+
+</form>
+
+
+
+{% endblock content %}

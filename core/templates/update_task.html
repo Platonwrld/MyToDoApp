@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<style>
+    html {
+        background-color: #8edabf;
+    }
+</style>
+
+<h3>Update Task</h3>
+
+<form method="POST" action="">
+	{% csrf_token %}
+
+	{{form}}
+	<input type="submit" name="Update Task">
+</form>
+
+{% endblock content %}

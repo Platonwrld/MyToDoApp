@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="todo-list">
+	{% for task in tasks %}
+	{% if task.user.id == user_id %}
+		<div class="item-row">
+
+			{% if task.completed == True %}
+			<strike>{{ task }}</strike>
+			{% else %}
+			<span>{{ task }}</span>
+            <p style="color: rgb(99, 99, 99);">{{ task.description }}</p>
+            <p style="color: rgb(255, 255, 199);">{{ task.priority }}</p>
+			<p style="color: black;">{{ task.day_of_week }}</p>
+            <a class="btn btn-sm btn-danger" href="{% url 'update-task' task.id %}">Update</a>
+			<a class="btn btn-sm btn-info" href="{% url 'delete-task' task.id %}">Delete</a>
+			{% endif %}
+		</div>
+		{% else %}
+		<h2></h2>
+		{% endif %}
+	{% endfor %}
+	</div>
+
+{% endblock content %}
